@@ -19,4 +19,8 @@ public class Deck {
     }
   }
 
+  public int getCount() {
+    return deck.size();
+  }
+
 }
