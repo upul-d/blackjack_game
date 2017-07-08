@@ -7,6 +7,16 @@ public class Deck {
 
   public Deck() {
     deck = new ArrayList<Card>();
+    makeDeck();
+  }
+
+  public void makeDeck() {
+    for (Rank rank : Rank.values()) {
+      for (Suit suit : Suit.values()) {
+        Card card = new Card(rank, suit);
+        deck.add(card);
+      }
+    }
   }
 
 }
