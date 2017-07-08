@@ -8,12 +8,12 @@ public class CardTest {
 
   @Before
   public void before() {
-    card = new Card(Rank.EIGHT, Suit.CLUBS, 8, 8);
+    card = new Card(Rank.ACE, Suit.CLUBS, 1, 11);
   }
 
   @Test
   public void hasRank() {
-    assertEquals(Rank.EIGHT, card.getRank());
+    assertEquals(Rank.ACE, card.getRank());
   }
 
   @Test
@@ -23,7 +23,12 @@ public class CardTest {
 
   @Test
   public void hasMinValue() {
-    assertEquals(8, card.getMinValue());
+    assertEquals(1, card.getMinValue());
+  }
+
+  @Test
+  public void hasMaxValue() {
+    assertEquals(11, card.getMaxValue());
   }
 
 }
