@@ -21,4 +21,9 @@ public class CardTest {
     assertEquals(Suit.CLUBS, card.getSuit());
   }
 
+  @Test
+  public void hasMinValue() {
+    assertEquals(8, card.getMinValue());
+  }
+
 }
