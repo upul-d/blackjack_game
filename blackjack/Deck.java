@@ -23,4 +23,8 @@ public class Deck {
     return deck.size();
   }
 
+  public Card getCard(int index) {
+    return deck.get(index);
+  }
+
 }
