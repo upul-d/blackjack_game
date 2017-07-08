@@ -2,12 +2,16 @@ package blackjack;
 
 public class Card {
 
-  private Rank rank;
-  private Suit suit;
+  private final Rank rank;
+  private final Suit suit;
+  private final int min;
+  private final int max;
 
-  public Card(Rank rank, Suit suit) {
+  public Card(Rank rank, Suit suit, int min, int max) {
     this.rank = rank;
     this.suit = suit;
+    this.min = min;
+    this.max = max;
   }
 
   public Rank getRank() {
@@ -16,6 +20,14 @@ public class Card {
 
   public Suit getSuit() {
     return this.suit;
+  }
+
+  public int getMinValue() {
+    return this.min;
+  }
+
+  public int getMaxValue() {
+    return this.max;
   }
 
 }
