@@ -10,10 +10,12 @@ public class Deck {
     makeDeck();
   }
 
-  public void makeDeck() {
+  private void makeDeck() {
     for (Rank rank : Rank.values()) {
       for (Suit suit : Suit.values()) {
-        Card card = new Card(rank, suit);
+        int minValue = Rule.getMinCardValue(rank, suit);
+        int maxValue = Rule.getMaxCardValue(rank, suit);
+        Card card = new Card(rank, suit, minValue, maxValue);
         deck.add(card);
       }
     }
@@ -23,8 +25,8 @@ public class Deck {
     return deck.size();
   }
 
-  public Card getCard(int index) {
-    return deck.get(index);
-  }
+  // public Card getCard(int index) {
+  //   return deck.get(index);
+  // }
 
 }
