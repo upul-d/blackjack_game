@@ -20,9 +20,9 @@ public class DeckTest {
   public void canGetCardFromDeck()
   {
     assertEquals(Suit.CLUBS, deck.getCard().getSuit());
-    assertEquals(Rank.ACE, deck.getCard().getRank());
-    assertEquals(1, deck.getCard().getMinValue());
-    assertEquals(11, deck.getCard().getMaxValue());
+    assertEquals(Rank.TWO, deck.getCard().getRank());
+    assertEquals(2, deck.getCard().getMinValue());
+    assertEquals(2, deck.getCard().getMaxValue());
   }
 
 }

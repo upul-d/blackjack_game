@@ -26,7 +26,7 @@ public class Deck {
   }
 
   public Card getCard() {
-    return deck.get(48);
+    return deck.get(0);
   }
 
 }
