@@ -4,10 +4,10 @@ public class Card {
 
   private final Rank rank;
   private final Suit suit;
-  private final int min;
-  private final int max;
+  private final Integer min;
+  private final Integer max;
 
-  public Card(Rank rank, Suit suit, int min, int max) {
+  public Card(Rank rank, Suit suit, Integer min, Integer max) {
     this.rank = rank;
     this.suit = suit;
     this.min = min;
@@ -30,4 +30,8 @@ public class Card {
     return this.max;
   }
 
+  @Override
+  public String toString() {
+    return this.rank.toString() + "," + this.suit.toString() + "," + this.min.toString() + "," + this.max.toString();
+  }
 }
