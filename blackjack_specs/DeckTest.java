@@ -25,8 +25,14 @@ public class DeckTest {
   }
 
   @Test
-  public void convertCardToString() {
-    assertEquals("TWO,CLUBS,2,2", deck.getCard().toString());
+  public void canRemoveCard() {
+      assertEquals("TWO,CLUBS,2,2", deck.getCard().toString());
+      assertEquals(52, deck.getCount());
+      
+      deck.removeCard();
+      
+      assertNotEquals("TWO,CLUBS,2,2", deck.getCard().toString());
+      assertEquals(51, deck.getCount());
   }
 
   @Test

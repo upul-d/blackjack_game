@@ -14,8 +14,8 @@ public class Deck {
   private void makeDeck() {
     for (Rank rank : Rank.values()) {
       for (Suit suit : Suit.values()) {
-        Integer minValue = Rule.getMinCardValue(rank, suit);
-        Integer maxValue = Rule.getMaxCardValue(rank, suit);
+        int minValue = Rule.getMinCardValue(rank, suit);
+        int maxValue = Rule.getMaxCardValue(rank, suit);
         Card card = new Card(rank, suit, minValue, maxValue);
         deck.add(card);
       }
@@ -28,6 +28,10 @@ public class Deck {
 
   public Card getCard() {
     return deck.get(0);
+  }
+
+  public void removeCard() {
+    deck.remove(0);
   }
 
   public void shuffleDeck() {
