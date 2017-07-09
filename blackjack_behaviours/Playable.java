@@ -2,7 +2,8 @@ package blackjack_behaviours;
 
 public interface Playable {
   
-  String play();
+  void receiveCard();
+  Integer calculateScore();
   Integer showScore();
 
 }
