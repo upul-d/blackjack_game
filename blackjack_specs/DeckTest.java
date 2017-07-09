@@ -25,6 +25,11 @@ public class DeckTest {
   }
 
   @Test
+  public void testString() {
+    assertEquals("TWO,CLUBS,2,2", deck.getCard().toString());
+  }
+
+  @Test
   public void checkShuffleDeck() {
     Deck testDeck1 = new Deck();
     assertEquals(Suit.CLUBS, testDeck1.getCard().getSuit());
