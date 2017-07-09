@@ -17,7 +17,7 @@ public class DeckTest {
   }
 
   @Test
-  public void canGetCardFromDeck() {
+  public void canGetCard() {
     assertEquals(Suit.CLUBS, deck.getCard().getSuit());
     assertEquals(Rank.TWO, deck.getCard().getRank());
     assertEquals(2, deck.getCard().getMinValue());
@@ -25,7 +25,7 @@ public class DeckTest {
   }
 
   @Test
-  public void testString() {
+  public void convertCardToString() {
     assertEquals("TWO,CLUBS,2,2", deck.getCard().toString());
   }
 
@@ -47,4 +47,28 @@ public class DeckTest {
     assertNotEquals(testDeck1.toString(), testDeck2.toString());
   }
 
+  @Test
+  public void checkHasSomeRandomness() {
+    Deck testDeck1 = new Deck();
+    assertEquals(Suit.CLUBS, testDeck1.getCard().getSuit());
+    assertEquals(Rank.TWO, testDeck1.getCard().getRank());
+    assertEquals(2, testDeck1.getCard().getMinValue());
+    assertEquals(2, testDeck1.getCard().getMaxValue());
+
+    Deck testDeck2 = new Deck();
+
+    int deckOrderMatchCounter = 0;
+
+    for(int i=0; i<1000; i++)
+    {
+      testDeck1.shuffleDeck();
+      testDeck2.shuffleDeck();
+      if(testDeck1.toString().equals(testDeck2.toString()))
+      {
+        deckOrderMatchCounter++;
+      }
+    }
+
+    assertEquals(0, deckOrderMatchCounter);
+  }
 }
