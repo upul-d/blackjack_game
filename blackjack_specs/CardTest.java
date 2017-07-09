@@ -31,4 +31,9 @@ public class CardTest {
     assertEquals(11, card.getMaxValue());
   }
 
+  @Test
+  public void convertCardToString() {
+    assertEquals("ACE,CLUBS,1,11", card.toString());
+  }
+
 }
