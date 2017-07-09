@@ -1,5 +1,6 @@
 package blackjack;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Deck {
 
@@ -13,8 +14,8 @@ public class Deck {
   private void makeDeck() {
     for (Rank rank : Rank.values()) {
       for (Suit suit : Suit.values()) {
-        int minValue = Rule.getMinCardValue(rank, suit);
-        int maxValue = Rule.getMaxCardValue(rank, suit);
+        Integer minValue = Rule.getMinCardValue(rank, suit);
+        Integer maxValue = Rule.getMaxCardValue(rank, suit);
         Card card = new Card(rank, suit, minValue, maxValue);
         deck.add(card);
       }
@@ -27,6 +28,20 @@ public class Deck {
 
   public Card getCard() {
     return deck.get(0);
+  }
+
+  public void shuffleDeck() {
+    Collections.shuffle(deck);
+  }
+
+  @Override
+  public String toString() {
+    String output = "";
+    for (Card card : deck) {
+      output += card.toString() + ",";
+    }
+
+    return output;
   }
 
 }
