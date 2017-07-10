@@ -21,6 +21,10 @@ public abstract class GameActor implements Playable {
     hand.add(new Card(rank, suit, min, max));
   }
 
+  public int getCount() {
+    return hand.size();
+  }
+
   public int showScore() {
     // method to be written
     return 0;

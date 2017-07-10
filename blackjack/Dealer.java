@@ -17,16 +17,10 @@ public class Dealer extends GameActor implements Dealable {
     deck.shuffleDeck();
   }
 
-  public void dealCard() {
-    // To be completed
-    // Card dealtCard = deck.getCard();
-    // receiveCard(dealtCard.rank, dealtCard.suit, dealtCard.min, dealtCard.max);
-    // deck.removeCard();
-
-    // To be completed
-    // Card dealtCart = deck.getCard();
-    // player.receiveCard(dealtCard.rank, dealtCard.suit, dealtCard.min, dealtCard.max);
-    // deck.removeCard();
+  public void dealCard(GameActor gameActor) {
+    Card dealtCard = deck.getCard();
+    gameActor.receiveCard(dealtCard.getRank(), dealtCard.getSuit(), dealtCard.getMinValue(), dealtCard.getMaxValue());
+    deck.removeCard();
   }
   
   public int checkAllScores() {
