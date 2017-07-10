@@ -1,6 +1,7 @@
 import static org.junit.Assert.*;
 import org.junit.*;
 import blackjack.*;
+import java.util.Random;
 
 public class DealerTest {
 
@@ -11,7 +12,7 @@ public class DealerTest {
   @Before
   public void before() {
     dealer = new Dealer("Boris 'The Blade' Yurinov");
-    testDeck = new Deck();
+    testDeck = new Deck(new Random(5));
     dealer.setDeck(testDeck);
     testPlayer = new Player("Mickey O'Neil");
   }
@@ -33,6 +34,12 @@ public class DealerTest {
     dealer.dealCard(testPlayer);
     assertEquals(1, testPlayer.getCount());
     assertEquals(51, testDeck.getCount());
+  }
+
+  @Test
+  public void canCalculateScore() {
+    dealer.dealCard(dealer);
+    assertEquals(4, dealer.showScore());
   }
 
 }

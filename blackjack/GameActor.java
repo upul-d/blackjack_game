@@ -26,8 +26,17 @@ public abstract class GameActor implements Playable {
   }
 
   public int showScore() {
-    // method to be written
-    return 0;
+    int sum = 0;
+    for (Card card : hand){
+      
+      if(sum < 11 && card.getMinValue() == 1) {
+        sum+=card.getMaxValue();
+      }else {
+        sum += card.getMinValue();        
+      }
+    }
+
+    return sum;
   }
 
 

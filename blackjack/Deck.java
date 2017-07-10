@@ -1,14 +1,22 @@
 package blackjack;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 
 public class Deck {
 
   private ArrayList<Card> deck;
+  private Random random;
 
   public Deck() {
-    deck = new ArrayList<Card>();
+    this.random = new Random();
+    this.deck = new ArrayList<Card>();
     makeDeck();
+  }
+
+  public Deck(Random random) {
+    this();
+    this.random = random;
   }
 
   private void makeDeck() {
@@ -35,7 +43,7 @@ public class Deck {
   }
 
   public void shuffleDeck() {
-    Collections.shuffle(deck);
+    Collections.shuffle(deck, random);
   }
 
   @Override
