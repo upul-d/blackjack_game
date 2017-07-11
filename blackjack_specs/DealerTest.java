@@ -103,4 +103,21 @@ public class DealerTest {
     assertEquals(PLAYERNAME, dealer.compareScores(testPlayer).getName());
   }
 
+  @Test
+  public void canCompareScoresPlayerBustDealerNotBust() {
+    Card newDealtCard1 = new Card(Rank.QUEEN,Suit.DIAMONDS,10,10);
+    Card newDealtCard2 = new Card(Rank.ACE,Suit.CLUBS,1,11);
+
+    testPlayer.receiveCard(newDealtCard1.getRank(), newDealtCard1.getSuit(), newDealtCard1.getMinValue(), newDealtCard1.getMaxValue());
+    testPlayer.receiveCard(newDealtCard2.getRank(), newDealtCard2.getSuit(), newDealtCard2.getMinValue(), newDealtCard2.getMaxValue());
+    testPlayer.receiveCard(newDealtCard2.getRank(), newDealtCard2.getSuit(), newDealtCard2.getMinValue(), newDealtCard2.getMaxValue());
+    assertEquals(22, testPlayer.showScore());
+
+    dealer.receiveCard(newDealtCard1.getRank(), newDealtCard1.getSuit(), newDealtCard1.getMinValue(), newDealtCard1.getMaxValue());
+    assertEquals(10, dealer.showScore());
+
+    assertEquals(DEALERNAME, dealer.compareScores(testPlayer).getName());
+  }
+
+
 }
