@@ -23,9 +23,33 @@ public class Dealer extends GameActor implements Dealable {
     deck.removeCard();
   }
   
-  public int checkAllScores() {
-    // to be written
-    return 0;
+  public GameActor compareScores(GameActor otherPlayer) {
+    int dealerScore = showScore();
+    int otherPlayerScore = otherPlayer.showScore();
+
+    if((dealerScore < 21 && otherPlayerScore < 21) && (dealerScore == otherPlayerScore) || (dealerScore > 21 && otherPlayerScore > 21))  
+    {
+      return null;
+    }
+    else if(dealerScore > 21)
+    {
+      return otherPlayer;
+    }
+    else if(otherPlayerScore > 21)
+    {
+      return this;
+    }
+    else
+    {
+      if(otherPlayerScore > dealerScore)
+      {
+        return otherPlayer;
+      }
+      else
+      {
+        return this;
+      }
+    }
   }
 
 }
