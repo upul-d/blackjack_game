@@ -27,7 +27,7 @@ public class Dealer extends GameActor implements Dealable {
     int dealerScore = showScore();
     int otherPlayerScore = otherPlayer.showScore();
 
-    if((dealerScore < 21 && otherPlayerScore < 21) && (dealerScore == otherPlayerScore) || (dealerScore > 21 && otherPlayerScore > 21))  
+    if((dealerScore <= 21 && otherPlayerScore <= 21) && (dealerScore == otherPlayerScore) || (dealerScore > 21 && otherPlayerScore > 21))  
     {
       return null;
     }
