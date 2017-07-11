@@ -39,7 +39,7 @@ public abstract class GameActor implements Playable {
     int sum = 0;
     for (Card card : hand) {
 
-      if(sum < 11 && card.getMinValue() == 1) {
+      if (sum < 11 &&  card.getRank() == Rank.ACE) {
         sum += card.getMaxValue();
       } 
       else {

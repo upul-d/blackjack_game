@@ -4,6 +4,6 @@ import blackjack.*;
 public interface Dealable {
   
   void dealCard(GameActor gameActor);
-  int checkAllScores();
+  GameActor compareScores(GameActor gameActor);
 
 }
