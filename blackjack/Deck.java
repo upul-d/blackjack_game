@@ -50,7 +50,7 @@ public class Deck {
   public String toString() {
     String output = "";
     for (Card card : deck) {
-      output += card.toString() + ",";
+      output += card.toString();
     }
 
     return output;

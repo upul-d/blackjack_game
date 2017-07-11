@@ -26,12 +26,12 @@ public class DeckTest {
 
   @Test
   public void canRemoveCard() {
-    assertEquals("TWO,CLUBS,2,2", deck.getCard().toString());
+    assertEquals("TWO of CLUBS (min = 2, max = 2);", deck.getCard().toString());
     assertEquals(52, deck.getCount());
 
     deck.removeCard();
       
-    assertNotEquals("TWO,CLUBS,2,2", deck.getCard().toString());
+    assertNotEquals("TWO of CLUBS (min = 2, max = 2);", deck.getCard().toString());
     assertEquals(51, deck.getCount());
   }
 

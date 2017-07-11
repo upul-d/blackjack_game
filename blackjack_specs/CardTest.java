@@ -33,7 +33,7 @@ public class CardTest {
 
   @Test
   public void convertCardToString() {
-    assertEquals("ACE,CLUBS,1,11", card.toString());
+    assertEquals("ACE of CLUBS (min = 1, max = 11);", card.toString());
   }
 
 }
