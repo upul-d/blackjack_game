@@ -37,9 +37,20 @@ public class DealerTest {
   }
 
   @Test
+  public void canGetHandAsString() {
+    dealer.dealCard(testPlayer);
+    assertEquals(1, testPlayer.getCount());
+    assertEquals("FOUR of CLUBS (min = 4, max = 4);", testPlayer.toString());
+  }
+
+  @Test
   public void canCalculateScore() {
     dealer.dealCard(dealer);
+    assertEquals("FOUR of CLUBS (min = 4, max = 4);", dealer.toString());
     assertEquals(4, dealer.showScore());
+    dealer.dealCard(dealer);
+    assertEquals("FOUR of CLUBS (min = 4, max = 4);KING of CLUBS (min = 10, max = 10);", dealer.toString());
+    assertEquals(14, dealer.showScore());
   }
 
 }

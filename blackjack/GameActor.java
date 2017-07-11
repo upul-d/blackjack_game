@@ -25,13 +25,24 @@ public abstract class GameActor implements Playable {
     return hand.size();
   }
 
+  @Override
+  public String toString() {
+    String output = "";
+    for (Card card : hand) {
+      output += card.toString();
+    }
+
+    return output;
+  }
+
   public int showScore() {
     int sum = 0;
-    for (Card card : hand){
-      
+    for (Card card : hand) {
+
       if(sum < 11 && card.getMinValue() == 1) {
-        sum+=card.getMaxValue();
-      }else {
+        sum += card.getMaxValue();
+      } 
+      else {
         sum += card.getMinValue();        
       }
     }
