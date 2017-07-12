@@ -16,7 +16,7 @@ public class Game{
     System.out.println("Let's set up the game!");
 
     Player player = new Player(playerName);
-    System.out.println("Finished setting up the system for " + playerName + " to play.");
+    System.out.println("Finished setting up the system for " + player.getName() + " to play.");
     Dealer dealer = new Dealer("MacDealer");
     System.out.println("Finished setting up the system for the computer, " + dealer.getName() + ", to play :-)");
     Deck deck = new Deck();
@@ -68,13 +68,19 @@ public class Game{
   }
 
   private void automateComputerPlayer(Player player, Dealer dealer)
-  {
-    System.out.println(dealer.getName() + "'s current hand: " + dealer.toString());
-    while(dealer.showScore() < 17)
     {
-      dealer.dealCard(dealer);
-      System.out.println(dealer.getName() + "'s hand after getting a card: " + dealer.toString());
+      System.out.println(dealer.getName() + "'s current hand: " + dealer.toString());
+      while(dealer.showScore() < 17)
+      {
+        dealer.dealCard(dealer);
+        System.out.println(dealer.getName() + "'s hand after getting a card: " + dealer.toString());
+      }
+      if(dealer.showScore() > 21)
+      {
+        System.out.println(dealer.getName() + " is bust. " +  dealer.getName() + "'s final score is: " + dealer.showScore());
+      }else {
+          System.out.println(dealer.getName() + " is not able to twist anymore. " + dealer.getName() + "'s final score is: " + dealer.showScore());
+      }  
     }
-    System.out.println(dealer.getName() + " is not able to twist anymore, score is " + dealer.showScore());
-  }
+    
 }
