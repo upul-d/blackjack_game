@@ -8,7 +8,7 @@ public class Game{
   public Game(String playerName, int playerStandLevel){
     this.playerName = playerName;
     this.playerStandLevel = playerStandLevel;
-    System.out.println(playerName + " is the player & will stick on or after " + this.playerStandLevel + ".");
+    System.out.println(playerName + " is the player.\n" + playerName + " has chosen a minimum stand score of " + this.playerStandLevel + ".");
   }
 
   public void play()
@@ -35,7 +35,7 @@ public class Game{
 
     if(player.showScore() > 21)
     {
-      System.out.println(player.getName() + " went bust, " + dealer.getName() + " is the winner!");
+      System.out.println("Game over..." + dealer.getName() + " is the winner!");
     }else
     {
       automateComputerPlayer(player, dealer);
@@ -47,10 +47,10 @@ public class Game{
   {
     if(winner == null)
     {
-      System.out.println("The game is a draw");
+      System.out.println("Game over...it's a draw!");
     }else
     {
-      System.out.println("The winner is " + winner.getName());
+      System.out.println("Game over..." + winner.getName() + " is the winner!");
     }
   }
 
@@ -67,9 +67,12 @@ public class Game{
 
     if(player.showScore() > 21)
     {
-      System.out.println(player.getName() + " is bust. " +  player.getName() + "'s final score is: " + player.showScore());
-    }else {
-        System.out.println(player.getName() + " is not bust but has met the chosen stand score. " + player.getName() + " can't twist. " + player.getName() + "'s final score is: " + player.showScore());
+      System.out.println(player.getName() + " is bust! " +  player.getName() + "'s final score is: " + player.showScore());
+    }else if (player.showScore() == 21) {
+      System.out.println(player.getName() + " has 21. Let's see what " + dealer.getName() + " will end up on.");
+    }else 
+    {
+      System.out.println(player.getName() + " is not bust but has met the chosen stand score. " + player.getName() + " can't twist. " + player.getName() + "'s final score is: " + player.showScore());
     } 
   }
 
@@ -85,7 +88,7 @@ public class Game{
 
       if(dealer.showScore() > 21)
       {
-        System.out.println(dealer.getName() + " is bust. " +  dealer.getName() + "'s final score is: " + dealer.showScore());
+        System.out.println(dealer.getName() + " is bust! " +  dealer.getName() + "'s final score is: " + dealer.showScore());
       }else {
           System.out.println(dealer.getName() + " is not able to twist anymore. " + dealer.getName() + "'s final score is: " + dealer.showScore());
       }  
