@@ -7,8 +7,8 @@ public class DealerTest {
 
   private static final String DEALERNAME = "Boris 'The Blade' Yurinov";
   private static final String PLAYERNAME = "Mickey O'Neil";
-  private static final String FOUROFCLUBS = "FOUR of CLUBS (min = 4, max = 4);";
-  private static final String KINGOFCLUBS = "KING of CLUBS (min = 10, max = 10);";
+  private static final String FOUROFCLUBS = "FOUR of CLUBS (min = 4, max = 4);" + "\n";
+  private static final String KINGOFCLUBS = "KING of CLUBS (min = 10, max = 10);" + "\n";
 
 
   Dealer dealer;

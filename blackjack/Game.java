@@ -57,12 +57,12 @@ public class Game{
 
   private void automateHumanPlayer(Player player, Dealer dealer)
   {
-    System.out.println(player.getName() + "'s current hand: " + player.toString());
+    System.out.println("\n" + player.getName() + "'s current hand:\n" + player.toString());
 
     while(player.showScore() <= playerStandLevel)
     {
       dealer.dealCard(player);
-      System.out.println(player.getName() + "'s hand after getting a card: " + player.toString());
+      System.out.println(player.getName() + "'s hand after getting a card:\n" + player.toString());
     }
 
     if(player.showScore() > 21)
@@ -78,12 +78,12 @@ public class Game{
 
   private void automateComputerPlayer(Player player, Dealer dealer)
     {
-      System.out.println(dealer.getName() + "'s current hand: " + dealer.toString());
+      System.out.println("\n" + dealer.getName() + "'s current hand:\n" + dealer.toString());
 
       while(dealer.showScore() < 17)
       {
         dealer.dealCard(dealer);
-        System.out.println(dealer.getName() + "'s hand after getting a card: " + dealer.toString());
+        System.out.println(dealer.getName() + "'s hand after getting a card:\n" + dealer.toString());
       }
 
       if(dealer.showScore() > 21)
