@@ -64,17 +64,25 @@ public class Game{
       dealer.dealCard(player);
       System.out.println(player.getName() + "'s hand after getting a card: " + player.toString());
     }
-    System.out.println(player.getName() + " is not able to twist anymore, score is " + player.showScore());
+
+    if(player.showScore() > 21)
+    {
+      System.out.println(player.getName() + " is bust. " +  player.getName() + "'s final score is: " + player.showScore());
+    }else {
+        System.out.println(player.getName() + " is not bust but has met the chosen stand score. " + player.getName() + " can't twist. " + player.getName() + "'s final score is: " + player.showScore());
+    } 
   }
 
   private void automateComputerPlayer(Player player, Dealer dealer)
     {
       System.out.println(dealer.getName() + "'s current hand: " + dealer.toString());
+
       while(dealer.showScore() < 17)
       {
         dealer.dealCard(dealer);
         System.out.println(dealer.getName() + "'s hand after getting a card: " + dealer.toString());
       }
+
       if(dealer.showScore() > 21)
       {
         System.out.println(dealer.getName() + " is bust. " +  dealer.getName() + "'s final score is: " + dealer.showScore());
@@ -82,5 +90,5 @@ public class Game{
           System.out.println(dealer.getName() + " is not able to twist anymore. " + dealer.getName() + "'s final score is: " + dealer.showScore());
       }  
     }
-    
+
 }
