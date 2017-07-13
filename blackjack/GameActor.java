@@ -36,19 +36,22 @@ public abstract class GameActor implements Playable {
   }
 
   public int showScore() {
-    int sum = 0;
-    for (Card card : hand) {
-
-      if (sum < 11 &&  card.getRank() == Rank.ACE) {
-        sum += card.getMaxValue();
-      } 
-      else {
-        sum += card.getMinValue();        
+      int sum = 0;    
+      int intMinTotal = 0;
+      int intMaxTotal = 0;
+      for (Card card : hand) {
+          intMinTotal += card.getMinValue();
+          intMaxTotal += card.getMaxValue();
       }
+      
+      if(intMinTotal <= 21 && intMaxTotal <= 21){
+          sum = Math.max(intMinTotal, intMaxTotal);
+      }else if(intMinTotal <= 21){
+          sum = intMinTotal;
+      }else{
+          sum = intMaxTotal;
+      }
+
+      return sum;
     }
-
-    return sum;
-  }
-
-
 }
