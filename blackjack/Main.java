@@ -1,18 +1,21 @@
 package blackjack;
 
+import java.util.*;
+
 public class Main{
   public static void main(String[] args) {
-    String playerName = "MacPlayer";
-    int playerStandLevel = 16;
-    if(args != null)
-    {
-      if(args.length == 2)
+      Scanner scanner = new Scanner(System.in);
+      String playerName = "";
+      
+      while(playerName.equals(""))
       {
-        playerName = args[0];
-        playerStandLevel = Integer.parseInt(args[1]);
+          System.out.println("Please enter a name for the player:");
+          playerName = scanner.nextLine();
       }
-    }
-    Game game = new Game(playerName, playerStandLevel);
-    game.play();
+      
+      System.out.println("Welcome " + playerName + "!");
+      
+      Game game = new Game(playerName);
+      game.play();
   }
 }

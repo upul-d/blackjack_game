@@ -1,14 +1,14 @@
 package blackjack;
 
+import java.util.*;
+
 public class Game{
 
   private String playerName;
   private int playerStandLevel;
 
-  public Game(String playerName, int playerStandLevel){
+  public Game(String playerName){
     this.playerName = playerName;
-    this.playerStandLevel = playerStandLevel;
-    System.out.println(playerName + " is the player.\n" + playerName + " has chosen a minimum stand score of " + this.playerStandLevel + ".");
   }
 
   public void play()
@@ -31,7 +31,7 @@ public class Game{
     dealer.dealCard(dealer);
     System.out.println(dealer.getName() + " dealt two cards to itself.");
 
-    automateHumanPlayer(player, dealer);
+    interactWithHumanPlayer(player, dealer);
 
     if(player.showScore() > 21)
     {
@@ -55,14 +55,28 @@ public class Game{
   }
 
 
-  private void automateHumanPlayer(Player player, Dealer dealer)
+  private void interactWithHumanPlayer(Player player, Dealer dealer)
   {
-    System.out.println("\n" + player.getName() + "'s current hand:\n" + player.toString());
+      Scanner scanner = new Scanner(System.in);
+      boolean twist = true;
+      
+      System.out.println("\n" + player.getName() + "'s current hand:\n" + player.toString());
 
-    while(player.showScore() <= playerStandLevel)
-    {
-      dealer.dealCard(player);
-      System.out.println(player.getName() + "'s hand after getting a card:\n" + player.toString());
+      while(askTwistOrStick(player)){
+
+          System.out.println("Would you like to twist or stick (enter T for twist and S for stick)? ");
+
+          String answer = scanner.nextLine();
+          
+          if(answer.equals("T")){              //User has selected to twist, deal a card to the player
+              dealer.dealCard(player);
+              System.out.println(player.getName() + "'s hand after getting a card:\n" + player.toString());
+          }else if(answer.equals("S")){
+              System.out.println(player.getName() + " has decided to stick!");
+              break;
+          }else{
+              System.out.println("'" + answer + "' is not a valid answer.  Please enter 'T' to twist or 'S' to stick");
+          }
     }
 
     if(player.showScore() > 21)
@@ -72,8 +86,19 @@ public class Game{
       System.out.println(player.getName() + " has 21. Let's see what " + dealer.getName() + " will end up on.");
     }else 
     {
-      System.out.println(player.getName() + " is not bust but has met the chosen stand score. " + player.getName() + " can't twist. " + player.getName() + "'s final score is: " + player.showScore());
+      System.out.println(player.getName() + " has decided to stick to " + player.showScore());
     } 
+  }
+  
+  private boolean askTwistOrStick(Player player)
+  {
+      if(player.showScore() < 21)
+      {
+          return true;
+      }else
+      {
+          return false;
+      }
   }
 
   private void automateComputerPlayer(Player player, Dealer dealer)
