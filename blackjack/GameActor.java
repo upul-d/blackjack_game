@@ -28,9 +28,14 @@ public abstract class GameActor implements Playable {
   @Override
   public String toString() {
     String output = "";
+    int min = 0;
+    int max = 0;
     for (Card card : hand) {
+      min += card.getMinValue();
+      max += card.getMaxValue();
       output += card.toString();
     }
+    output += "Current min total = " + min + ", current max total = " + max + "\n";
 
     return output;
   }
