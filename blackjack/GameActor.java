@@ -28,35 +28,27 @@ public abstract class GameActor implements Playable {
   @Override
   public String toString() {
     String output = "";
-    int min = 0;
-    int max = 0;
     for (Card card : hand) {
-      min += card.getMinValue();
-      max += card.getMaxValue();
       output += card.toString();
     }
-    output += "Current min total = " + min + ", current max total = " + max + "\n";
 
     return output;
   }
 
   public int showScore() {
-      int sum = 0;    
-      int intMinTotal = 0;
-      int intMaxTotal = 0;
-      for (Card card : hand) {
-          intMinTotal += card.getMinValue();
-          intMaxTotal += card.getMaxValue();
-      }
-      
-      if(intMinTotal <= 21 && intMaxTotal <= 21){
-          sum = Math.max(intMinTotal, intMaxTotal);
-      }else if(intMinTotal <= 21){
-          sum = intMinTotal;
-      }else{
-          sum = intMaxTotal;
-      }
+    int sum = 0;
+    for (Card card : hand) {
 
-      return sum;
+      if (sum < 11 &&  card.getRank() == Rank.ACE) {
+        sum += card.getMaxValue();
+      } 
+      else {
+        sum += card.getMinValue();        
+      }
     }
+
+    return sum;
+  }
+
+
 }
